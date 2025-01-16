@@ -7,7 +7,7 @@ import {ColorModeProvider} from "@/app/ColorModeProvider";
 import {warChecklist} from "@/app/checklist/warChecklist";
 import {useState} from "react";
 
-const checklists = [pegChecklist, warChecklist]
+const checklists = [warChecklist]
 
 export default function Home() {
     const [checklistIndex, setChecklistIndex] = useState(0);

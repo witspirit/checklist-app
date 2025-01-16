@@ -60,6 +60,15 @@ export const warChecklist: Checklist = {
             ]
         },
         {
+            name: 'iPad startup',
+            checks: [
+                check('Aerolync', 'flight started'),
+                check('Headset', 'on & bluetooth linked'),
+                check('SafeSky', 'OO-WAR Take-off'),
+                check('SkyDemon', 'Go Flying (GDL90)')
+            ]
+        },
+        {
             name: 'Before start',
             checks: [
                 check('Flightplan', 'filed', ['night']),
@@ -79,9 +88,7 @@ export const warChecklist: Checklist = {
                 check('Flaps', 'checked & set'),
                 check('Master switch & alternator', 'on'),
                 check('Navigation light', 'on', ['night']),
-                check('Annunciator panel', 'tested'),
-                check('Headset', 'on & bluetooth linked'),
-                check('SkyDemon', 'Go Flying')
+                check('Annunciator panel', 'tested')
             ]
         },
         {
@@ -256,9 +263,17 @@ export const warChecklist: Checklist = {
                 check('Electrical switches', 'all off'),
                 check('Parking brake', 'as required'),
                 check('Trims', 'neutral'),
-                check('Control lock', 'as required'),
-                check('SkyDemon', 'Log engine off'),
-                check('Headset', 'Off')
+                check('Control lock', 'as required')
+            ]
+        },
+        {
+            name: 'iPad shutdown',
+            alternate: 'iPad startup',
+            checks: [
+                check('SkyDemon', 'log engine off'),
+                check('Headset', 'off'),
+                check('SafeSky', 'flight closed'),
+                check('Aerolync', 'flight completed')
             ]
         }
     ]
