@@ -1,6 +1,7 @@
 {
   "name": "Bert's Checklist",
   "short_name": "checklist",
+  "description": "Checklist 2025.01.16",
   "icons": [
     {
       "src": "/checklist.png",
