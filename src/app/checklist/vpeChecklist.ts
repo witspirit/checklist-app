@@ -1,4 +1,4 @@
-import {check, Checklist} from "@/app/checklist/checklist-support";
+import {check, Checklist, item} from "@/app/checklist/checklist-support";
 
 export const vpeChecklist: Checklist = {
     name: 'OO-VPE',
@@ -25,17 +25,17 @@ export const vpeChecklist: Checklist = {
             // Derived from POH 4-2, walk-around part
             name: 'Preflight - exterior',
             checks: [
-                check('Fuel filler cap', 'in place, secured'),
-                check('Static vent', 'clean, unobstructed'),
+                item('Fuel filler cap').confirm('in place', 'secured'),
+                item('Static vent').confirm('clean','unobstructed'),
                 check('Main tank drain valve', 'actuated'),
                 check('Optional tank drain valve', 'actuated'),
-                check('Horizontal stabilizer', 'surface condition, hinge wear in tolerance'),
+                item('Horizontal stabilizer').confirm('surface condition','hinge wear in tolerance'),
                 check('Rudder', 'check hinge wear in tolerance'),
                 check('Static vent', 'clean, unobstructed'),
                 check('Flap and aileron', 'check condition and hinges'),
                 check('Wing tip and navigation lights', 'check condition'),
                 check('Stall warning', 'clean, check actuation'),
-                check('Right main landing gear', 'check, oil cap secured, panel closed, normal shock absorber compression, tire inflated'),
+                item('Right main landing gear').confirm('check', 'oil cap secured', 'panel closed', 'normal shock absorber compression', 'tire inflated'),
                 check('Fuel drain valve', 'actuated'),
                 check('Oil level', 'checked, oil cap secured, panel closed'),
                 check('Exhaust pipe', 'rigid'),
@@ -67,7 +67,7 @@ export const vpeChecklist: Checklist = {
             // Based on RAAC Checklist 3.1
             name: 'Before start',
             checks: [
-                check('Flightplan', 'filed', ['night']),
+                check('Flightplan', 'filed').nightOnly(),
                 check('POH', 'check latest edition and within reach'),
                 check('Canopy', 'closed & locked'),
                 check('Parking brake', 'locked'),
@@ -81,7 +81,7 @@ export const vpeChecklist: Checklist = {
                 check('Alarm panel', 'test, set day/night'),
                 check('Circuit breakers', 'on'),
                 check('All electrical switches and avionics', 'off'),
-                check('Navigation light', 'on', ['night']),
+                check('Navigation light', 'on').nightOnly(),
 
             ]
         },
@@ -123,8 +123,8 @@ export const vpeChecklist: Checklist = {
                 check('COM/NAV, navigation instruments', 'set'),
                 check('Altimeter', 'set'),
                 check('Horizon/Directional gyro', 'set'),
-                check('Landing light', 'on', ['night']),
-                check('Recognition lights', 'on', ['night']),
+                check('Landing light', 'on').nightOnly(),
+                check('Recognition lights', 'on').nightOnly(),
             ]
         },
         {
@@ -227,9 +227,9 @@ export const vpeChecklist: Checklist = {
             checks: [
                 check('Power lever', 'full forward'),
                 check('RPM before rotation', '2300 RPM'),
-                check('TO-speed', 'recommended 57 KIAS'),
-                check('Initial climb speed', 'recommended 65 KIAS'),
-                check('After obstacle clearance', 'recommended 78 KIAS'),
+                check('TO-speed', '~57 KIAS'),
+                check('Initial climb speed', '~65 KIAS'),
+                check('After obstacle clearance', '~78 KIAS'),
 
                 check('Flaps', 'up'),
                 check('Electrical fuel pump', 'off'),
@@ -241,9 +241,9 @@ export const vpeChecklist: Checklist = {
             name: 'Climb', // Normal climb, flaps up
             checks: [
                 check('Best rate of climb', ''),
-                check('from 0 to 9500 ft', 'recommended 78 KIAS'),
-                check('up to 11500 ft', 'recommended 75 KIAS'),
-                check('above 11500 ft', 'recommended 72 KIAS'),
+                check('from 0 to 9500 ft', '~78 KIAS'),
+                check('up to 11500 ft', '~75 KIAS'),
+                check('above 11500 ft', '~72 KIAS'),
                 check('Power lever', 'full forward'),
             ]
         },
@@ -251,7 +251,7 @@ export const vpeChecklist: Checklist = {
             // Based on RAAC Checklist 3.1
             name: 'Cruise',
             checks: [
-                check('Power', 'max. 100%, recommended 75% or less'),
+                check('Power', 'max. 100%, prefer 75% or less'),
                 check('Trim', 'adjust'),
                 check('CED 125 and caution lamp', 'monitor constantly'),
                 check('Fuel quantity and temperature', 'monitor'),
@@ -274,7 +274,7 @@ export const vpeChecklist: Checklist = {
                 check('Electrical fuel pump', 'on'),
                 check('Seats, belts', 'check'),
                 check('Flaps', '1st notch < 92 KIAS'),
-                check('Speed', 'recommended 81 KIAS'),
+                check('Speed', '~ 81 KIAS'),
                 check('Trim', 'adjust'),
 
                 check('Landing lights', 'on'), // Personal addition
@@ -289,7 +289,7 @@ export const vpeChecklist: Checklist = {
             name: 'Final',
             checks: [
                 check('Flaps', '2nd notch < 81 KIAS'),
-                check('Approach speed', 'recommended 62 KIAS'),
+                check('Approach speed', '~62 KIAS'),
                 check('Trim', 'set')
             ]
         },
@@ -300,12 +300,12 @@ export const vpeChecklist: Checklist = {
             checks: [
                 check('Short landing', ''),
                 check('Flaps', '2nd notch < 81 KIAS'),
-                check('Approach speed', 'recommended 62 KIAS'),
+                check('Approach speed', '~62 KIAS'),
 
                 check('Overshoot', ''),
                 check('Power lever', 'full power'),
-                check('Speed', 'recommended 65 KIAS'),
-                check('Progressively raise flaps to 1st notch, then establish normal climb speed', 'recommended 75 KIAS'),
+                check('Speed', '~65 KIAS'),
+                check('Progressively raise flaps to 1st notch, then establish normal climb speed', '~75 KIAS'),
             ]
         },
         {
