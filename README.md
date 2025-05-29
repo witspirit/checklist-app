@@ -21,6 +21,25 @@ in Firefox Web Developer Tools:
 
 Responsive, 370x810, DPR 2, No Throttling, UA: Mozilla/5(iPad)
 
+## Build & Deploy
+
+Create an optimized build for deployment
+
+```bash
+yarn build
+```
+
+After build, in the /out folder:
+
+```
+aws s3 sync . s3://checklist.witspirit.be --delete --profile witspirit
+```
+
+Probably my setup is not yet great, because after sync with S3, the Cloudfront distribution has to be
+invalidated to prevent it from serving the old content. Just did a full /* invalidation via the AWS console.
+I guess a more limited approach would be feasible. Perhaps even just the manifest... Will require more
+research.
+
 
 ## Learn More
 
