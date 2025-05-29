@@ -66,3 +66,7 @@
     font-style: italic;
     padding-right: 2px; /* Because of italic, the font leans outside... So padding to avoid clipping */
 }
+
+.confirmation {
+    text-align: right;
+}

@@ -14,6 +14,14 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Emulate iPad experience
+
+To experience the app as it looks on my iPad alongside SkyDemon, the following settings seem appropriate
+in Firefox Web Developer Tools:
+
+Responsive, 370x810, DPR 2, No Throttling, UA: Mozilla/5(iPad)
+
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

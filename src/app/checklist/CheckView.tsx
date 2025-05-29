@@ -8,6 +8,6 @@ export interface CheckProps {
 export const CheckView = ({check} : CheckProps) => {
     return <div className={styles.check}>
         <div>{check.item}</div>
-        <div className={styles.confirm}>{check.confirmations.join(', ')}</div>
+        <div className={styles.confirm}>{check.confirmations.map((confirmation, index) => <div key={index} className={styles.confirmation}>{confirmation}</div>)}</div>
     </div>
 }

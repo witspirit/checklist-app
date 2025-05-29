@@ -29,27 +29,27 @@ export const vpeChecklist: Checklist = {
                 item('Static vent').confirm('clean','unobstructed'),
                 check('Main tank drain valve', 'actuated'),
                 check('Optional tank drain valve', 'actuated'),
-                item('Horizontal stabilizer').confirm('surface condition','hinge wear in tolerance'),
-                check('Rudder', 'check hinge wear in tolerance'),
+                item('Horizontal stabilizer').confirm('surface condition','hinge wear ok'),
+                check('Rudder', 'check hinge wear ok'),
                 check('Static vent', 'clean, unobstructed'),
                 check('Flap and aileron', 'check condition and hinges'),
-                check('Wing tip and navigation lights', 'check condition'),
+                check('Wing tip and lights', 'check condition'),
                 check('Stall warning', 'clean, check actuation'),
-                item('Right main landing gear').confirm('check', 'oil cap secured', 'panel closed', 'normal shock absorber compression', 'tire inflated'),
+                item('Right main landing gear').confirm('check', 'oil cap secured', 'panel closed', 'shock absorber compression', 'tire inflated'),
                 check('Fuel drain valve', 'actuated'),
-                check('Oil level', 'checked, oil cap secured, panel closed'),
+                item('Oil level').confirm('checked', 'oil cap secured', 'panel closed'),
                 check('Exhaust pipe', 'rigid'),
                 check('Engine cowl attachments', 'check'),
                 check('Propeller', 'clean, in good condition'),
                 check('Propeller spinner', 'no play'),
                 check('Air inlets', 'clean, unobstructed'),
                 check('Gear box oil level', 'check'), // Half of the inspection glass
-                check('Nose gear', 'check attachment and condition of fairing, normal shock absorber compression, tire inflated, tow bar removed'),
+                item('Nose gear').confirm('check attachment and fairing', 'shock absorber compression', 'tire inflated', 'tow bar removed'),
                 check('Canopy cleanliness', 'check'),
-                check('Left main landing gear', 'check attachment and condition of fairing, normal shock absorber compression, tire inflated'),
+                item('Left main landing gear').confirm('check attachment and fairing', 'shock absorber compression', 'tire inflated'),
                 check('Pitot', 'clean, unobstructed'),
                 check('Lights', 'glass clean'),
-                check('Wing tip and navigation lights', 'check condition'),
+                check('Wing tip and lights', 'check condition'),
                 check('Flap and aileron', 'check condition and hinges'),
             ]
         },
@@ -68,7 +68,7 @@ export const vpeChecklist: Checklist = {
             name: 'Before start',
             checks: [
                 check('Flightplan', 'filed').nightOnly(),
-                check('POH', 'check latest edition and within reach'),
+                item('POH').confirm('check latest edition', 'within reach'),
                 check('Canopy', 'closed & locked'),
                 check('Parking brake', 'locked'),
                 check('Front seats', 'adjusted & locked'),
@@ -82,7 +82,6 @@ export const vpeChecklist: Checklist = {
                 check('Circuit breakers', 'on'),
                 check('All electrical switches and avionics', 'off'),
                 check('Navigation light', 'on').nightOnly(),
-
             ]
         },
         {
@@ -115,8 +114,8 @@ export const vpeChecklist: Checklist = {
             checks: [
                 check('Electrical fuel pump', 'off'),
                 check('FADEC BACKUP BATTERY CHECK', 'perform'),
-                check('Alternator', 'off, engine must operate normally'),
-                check('Battery', 'off for min. 10s, engine must operate normally, no red FADEC lights illuminated'),
+                item('Alternator').confirm('off', 'engine must operate normally'),
+                item('Battery').confirm('off for min. 10s', 'engine must operate normally', 'no red FADEC lights illuminated'),
                 check('Battery', 'on'),
                 check('Alternator', 'on'),
                 check('Avionics switch', 'on'),
@@ -124,7 +123,6 @@ export const vpeChecklist: Checklist = {
                 check('Altimeter', 'set'),
                 check('Horizon/Directional gyro', 'set'),
                 check('Landing light', 'on').nightOnly(),
-                check('Recognition lights', 'on').nightOnly(),
             ]
         },
         {
@@ -133,7 +131,7 @@ export const vpeChecklist: Checklist = {
             checks: [
                 check('For quicker coolant warming', 'pull cabin heat'),
                 check('Let engine warm', '~2min@idle'),
-                check('Max 1400 RPM until', 'oil temp. >50°C, coolant temp. >60°C'),
+                item('Max 1400 RPM until').confirm('oil temp. >50°C', 'coolant temp. >60°C'),
                 check('All CED LEDs', 'green')
             ]
         },
@@ -167,12 +165,12 @@ export const vpeChecklist: Checklist = {
             name: 'FADEC Self-Test',
             checks: [
                 check('Power lever', 'idle (both FADEC lights off)'),
-                check('FADEC test button', 'press & hold until completed'),
-                check('Both FADEC lights', 'on, RPM increases'),
-                check('FADEC switches automatically to B', 'FADEC B light on'),
-                check('FADEC switches automatically to A', 'FADEC A light on'),
-                check('During test', 'propeller controller is exited, RPM decreases momentarily'),
-                check('FADEC A-lamp', 'off'),
+                item('FADEC test button').confirm('press & hold', 'until completed'),
+                item('Both FADEC lights').confirm('on', 'RPM increases'),
+                check('FADEC => B', 'FADEC B light on'),
+                check('FADEC => A', 'FADEC A light on'),
+                item('During test').confirm('propeller controller is exited', 'RPM decreases momentarily'),
+                check('FADEC A light', 'off'),
                 check('RPM back to idle', 'test is completed'),
                 check('FADEC test button', 'release'),
             ]
@@ -181,7 +179,7 @@ export const vpeChecklist: Checklist = {
             // Based on RAAC Checklist - but split in 3 parts
             name: 'Before take-off - post',
             checks: [
-                check('Power lever', 'full forward, rpm must be established, load min. 94%, rpm 2240-2300'),
+                item('Power lever').confirm('full forward', 'rpm must be established', 'load min. 94%', 'rpm 2240-2300'),
                 check('Power lever', 'idle'),
                 check('Engine instruments & voltmeter', 'check'),
                 check('Vacuum gauge', 'check'),
@@ -240,7 +238,7 @@ export const vpeChecklist: Checklist = {
             // Based on RAAC Checklist 3.1
             name: 'Climb', // Normal climb, flaps up
             checks: [
-                check('Best rate of climb', ''),
+                item('Best rate of climb'),
                 check('from 0 to 9500 ft', '~78 KIAS'),
                 check('up to 11500 ft', '~75 KIAS'),
                 check('above 11500 ft', '~72 KIAS'),
@@ -251,7 +249,7 @@ export const vpeChecklist: Checklist = {
             // Based on RAAC Checklist 3.1
             name: 'Cruise',
             checks: [
-                check('Power', 'max. 100%, prefer 75% or less'),
+                item('Power').confirm('max. 100%', 'prefer 75% or less'),
                 check('Trim', 'adjust'),
                 check('CED 125 and caution lamp', 'monitor constantly'),
                 check('Fuel quantity and temperature', 'monitor'),
@@ -263,7 +261,7 @@ export const vpeChecklist: Checklist = {
             name: 'Descent',
             checks: [
                 check('Power', 'as required'),
-                check('Pull cabin heat to keep the coolant warm if power setting is low', ''),
+                item('Pull cabin heat to keep the coolant warm if power setting is low'),
                 check('If coolant temperature in amber range & engine caution lamp illuminated', 'increase power to recover green coolant temperature range'),
             ]
         },
@@ -298,14 +296,15 @@ export const vpeChecklist: Checklist = {
             name: 'Landing',
             alternate: 'Approach',
             checks: [
-                check('Short landing', ''),
+                item('Short landing'),
                 check('Flaps', '2nd notch < 81 KIAS'),
                 check('Approach speed', '~62 KIAS'),
 
-                check('Overshoot', ''),
+                item('Overshoot'),
                 check('Power lever', 'full power'),
                 check('Speed', '~65 KIAS'),
-                check('Progressively raise flaps to 1st notch, then establish normal climb speed', '~75 KIAS'),
+                item('Progressively raise flaps to 1st notch'),
+                item('establish normal climb speed').confirm('~75 KIAS'),
             ]
         },
         {
@@ -323,7 +322,8 @@ export const vpeChecklist: Checklist = {
                 check('Parking brake', 'set'),
                 check('Power lever', 'idle'),
                 check('Flaps', 'down'),
-                check('Avionics switch and electrical equipment, except strobe', 'off'),
+                check('Avionics switch', 'off'),
+                item('electrical equipment').confirm('off', 'except strobe'),
                 check('Engine master switch', 'off'),
 
                 check('Engine', 'await stop'),
@@ -336,7 +336,7 @@ export const vpeChecklist: Checklist = {
             name: 'iPad shutdown',
             alternate: 'iPad startup',
             checks: [
-                check('SkyDemon', 'log engine off, back to planning mode'),
+                item('SkyDemon').confirm('log engine off', 'back to planning mode'),
                 check('Headset', 'off'),
                 check('SafeSky', 'flight closed'),
                 check('Aerolync', 'flight completed')
