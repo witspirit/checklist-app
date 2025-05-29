@@ -5,6 +5,7 @@ export class ChecklistItem {
     item: string
     confirmations: string[]
     conditions: FlightCondition[]
+    critical = false
 
     constructor(item: string, confirmations: string[], conditions: FlightCondition[] = ['day', 'night']) {
         this.item = item
@@ -28,6 +29,11 @@ export class ChecklistItem {
     // Add night condition only
     nightOnly(): ChecklistItem {
         this.conditions = ['night']
+        return this
+    }
+
+    markCritical(): ChecklistItem {
+        this.critical = true
         return this
     }
 }
