@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useContext} from "react";
+import React, {PropsWithChildren, useContext, useMemo, useState} from "react";
 import {createTheme, IconButton, ThemeProvider, useTheme} from "@mui/material";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -23,8 +23,8 @@ export const useColorMode = () => {
 }
 
 export const ColorModeProvider = ({children}: PropsWithChildren) => {
-    const [mode, setMode] = React.useState<'light' | 'dark'>('light');
-    const colorMode = React.useMemo(
+    const [mode, setMode] = useState<'light' | 'dark'>('dark');
+    const colorMode = useMemo(
         () => ({
             toggleColorMode: () => {
                 setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
@@ -33,7 +33,7 @@ export const ColorModeProvider = ({children}: PropsWithChildren) => {
         [],
     );
 
-    const theme = React.useMemo(
+    const theme = useMemo(
         () =>
             createTheme({
                 palette: {

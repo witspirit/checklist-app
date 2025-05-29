@@ -166,15 +166,17 @@ export const vpeChecklist: Checklist = {
             // Based on RAAC Checklist - but split in 3 parts
             name: 'FADEC Self-Test',
             checks: [
-                check('Power lever', 'idle (both FADEC lights off)').markCritical(),
-                item('FADEC test button').confirm('press & hold', 'until completed').markCritical(),
-                item('Both FADEC lights').confirm('on', 'RPM increases').markCritical(),
-                check('FADEC => B', 'FADEC B light on').markCritical(),
-                check('FADEC => A', 'FADEC A light on').markCritical(),
-                item('During test').confirm('propeller controller is exited', 'RPM decreases momentarily').markCritical(),
-                check('FADEC A light', 'off').markCritical(),
-                check('RPM back to idle', 'test is completed').markCritical(),
-                check('FADEC test button', 'release').markCritical(),
+                item("FADEC Self-Test").markCritical().asSection(
+                    check('Power lever', 'idle (both FADEC lights off)'),
+                    item('FADEC test button').confirm('press & hold', 'until completed'),
+                    item('Both FADEC lights').confirm('on', 'RPM increases'),
+                    check('FADEC => B', 'FADEC B light on'),
+                    check('FADEC => A', 'FADEC A light on'),
+                    item('During test').confirm('propeller controller is exited', 'RPM decreases momentarily'),
+                    check('FADEC A light', 'off'),
+                    check('RPM back to idle', 'test is completed'),
+                    check('FADEC test button', 'release'),
+                )
             ]
         },
         {
