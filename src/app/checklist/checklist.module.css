@@ -70,3 +70,8 @@
 .confirmation {
     text-align: right;
 }
+
+.heading {
+    font-weight: bold;
+    padding-top: 1rem;
+}

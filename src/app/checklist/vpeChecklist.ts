@@ -113,7 +113,7 @@ export const vpeChecklist: Checklist = {
             name: 'After start',
             checks: [
                 check('Electrical fuel pump', 'off'),
-                item('FADEC BACKUP BATTERY CHECK').markCritical(),
+                item('FADEC BACKUP BATTERY CHECK').markCritical().asHeading(),
                 item('Alternator').confirm('off', 'engine must operate normally').markCritical(),
                 item('Battery').confirm('off for min. 10s', 'engine must operate normally', 'no red FADEC lights illuminated').markCritical(),
                 check('Battery', 'on').markCritical(),
@@ -296,11 +296,11 @@ export const vpeChecklist: Checklist = {
             name: 'Landing',
             alternate: 'Approach',
             checks: [
-                item('Short landing'),
+                item('Short landing').asHeading(),
                 check('Flaps', '2nd notch < 81 KIAS'),
                 check('Approach speed', '~62 KIAS'),
 
-                item('Overshoot'),
+                item('Overshoot').asHeading(),
                 check('Power lever', 'full power'),
                 check('Speed', '~65 KIAS'),
                 item('Progressively raise flaps to 1st notch'),

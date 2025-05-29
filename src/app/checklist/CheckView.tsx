@@ -7,7 +7,7 @@ export interface CheckProps {
 }
 
 export const CheckView = ({check}: CheckProps) => {
-    return <Typography color={check.critical ? 'error' : ''} component={'div'}>
+    return <Typography color={check.critical ? 'error' : ''} component={'div'} className={check.heading ? styles.heading : ''}>
         <div className={styles.check}>
             <div>{check.item}</div>
             <div className={styles.confirm}>
