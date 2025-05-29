@@ -7,9 +7,10 @@ export interface CheckProps {
 }
 
 export const CheckView = ({check}: CheckProps) => {
-    return <Typography color={check.critical ? 'error' : ''} component={'div'} className={check.heading ? styles.heading : ''}>
+    const section = check.children.length > 0
+    return <Typography color={check.critical ? 'error' : ''} component={'div'} className={section ? styles.section : ''}>
         <div className={styles.check}>
-            <div>{check.item}</div>
+            <div className={section ? styles.heading : ''}>{check.item}</div>
             <div className={styles.confirm}>
                 {check.confirmations.map((confirmation, index) =>
                     <div key={index} className={styles.confirmation}>
@@ -18,5 +19,6 @@ export const CheckView = ({check}: CheckProps) => {
                 )}
             </div>
         </div>
+        {check.children.map(subCheck => <CheckView key={subCheck.item} check={subCheck}/>)}
     </Typography>
 }

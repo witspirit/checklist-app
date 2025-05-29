@@ -71,7 +71,11 @@
     text-align: right;
 }
 
+.section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .heading {
     font-weight: bold;
-    padding-top: 1rem;
 }

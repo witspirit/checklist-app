@@ -113,11 +113,12 @@ export const vpeChecklist: Checklist = {
             name: 'After start',
             checks: [
                 check('Electrical fuel pump', 'off'),
-                item('FADEC BACKUP BATTERY CHECK').markCritical().asHeading(),
-                item('Alternator').confirm('off', 'engine must operate normally').markCritical(),
-                item('Battery').confirm('off for min. 10s', 'engine must operate normally', 'no red FADEC lights illuminated').markCritical(),
-                check('Battery', 'on').markCritical(),
-                check('Alternator', 'on').markCritical(),
+                item('FADEC BACKUP BATTERY CHECK').markCritical().asSection(
+                    item('Alternator').confirm('off', 'engine must operate normally'),
+                    item('Battery').confirm('off for min. 10s', 'engine must operate normally', 'no red FADEC lights illuminated'),
+                    check('Battery', 'on'),
+                    check('Alternator', 'on'),
+                ),
                 check('Avionics switch', 'on'),
                 check('COM/NAV, navigation instruments', 'set'),
                 check('Altimeter', 'set'),
@@ -141,10 +142,11 @@ export const vpeChecklist: Checklist = {
             checks: [
                 check('Parking brakes', 'unlock'),
                 check('Brakes', 'test'),
-                check('During turns', ''),
-                check('Turn coordinator/Horizon', 'check'),
-                check('Directional gyro', 'check operation & alignment'),
-                check('Standby magnetic compass', 'check')
+                item('During turns').asSection(
+                    check('Turn coordinator/Horizon', 'check'),
+                    check('Directional gyro', 'check operation & alignment'),
+                    check('Standby magnetic compass', 'check')
+                ),
             ]
         },
         {
@@ -238,10 +240,11 @@ export const vpeChecklist: Checklist = {
             // Based on RAAC Checklist 3.1
             name: 'Climb', // Normal climb, flaps up
             checks: [
-                item('Best rate of climb'),
-                check('from 0 to 9500 ft', '~78 KIAS'),
-                check('up to 11500 ft', '~75 KIAS'),
-                check('above 11500 ft', '~72 KIAS'),
+                item('Best rate of climb').asSection(
+                    check('from 0 to 9500 ft', '~78 KIAS'),
+                    check('up to 11500 ft', '~75 KIAS'),
+                    check('above 11500 ft', '~72 KIAS'),
+                ),
                 check('Power lever', 'full forward'),
             ]
         },
@@ -296,15 +299,17 @@ export const vpeChecklist: Checklist = {
             name: 'Landing',
             alternate: 'Approach',
             checks: [
-                item('Short landing').asHeading(),
-                check('Flaps', '2nd notch < 81 KIAS'),
-                check('Approach speed', '~62 KIAS'),
+                item('Short landing').asSection(
+                    check('Flaps', '2nd notch < 81 KIAS'),
+                    check('Approach speed', '~62 KIAS'),
+                ),
 
-                item('Overshoot').asHeading(),
-                check('Power lever', 'full power'),
-                check('Speed', '~65 KIAS'),
-                item('Progressively raise flaps to 1st notch'),
-                item('establish normal climb speed').confirm('~75 KIAS'),
+                item('Overshoot').asSection(
+                    check('Power lever', 'full power'),
+                    check('Speed', '~65 KIAS'),
+                    item('Progressively raise flaps to 1st notch'),
+                    item('establish normal climb speed').confirm('~75 KIAS'),
+                ),
             ]
         },
         {

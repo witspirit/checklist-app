@@ -6,7 +6,7 @@ export class ChecklistItem {
     confirmations: string[]
     conditions: FlightCondition[]
     critical = false
-    heading = false
+    children: ChecklistItem[] = []
 
     constructor(item: string, confirmations: string[], conditions: FlightCondition[] = ['day', 'night']) {
         this.item = item
@@ -38,8 +38,8 @@ export class ChecklistItem {
         return this
     }
 
-    asHeading(): ChecklistItem {
-        this.heading = true
+    asSection(...items: ChecklistItem[]): ChecklistItem {
+        this.children.push(...items)
         return this
     }
 }
