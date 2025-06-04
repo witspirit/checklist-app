@@ -1,7 +1,7 @@
 import {check, Checklist, item} from "@/app/checklist/checklist-support";
 
-export const vpeChecklist: Checklist = {
-    name: 'OO-VPE',
+export const vpeChecklist_RAAC: Checklist = {
+    name: 'OO-VPE (RAAC)',
     phases: [
         {
             // Derived from POH 4-2, initial interior part
