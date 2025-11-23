@@ -3,12 +3,11 @@
 import {ChecklistViewer} from "@/app/checklist/ChecklistViewer";
 import {CssBaseline} from "@mui/material";
 import {ColorModeProvider} from "@/app/ColorModeProvider";
-import {warChecklist} from "@/app/checklist/warChecklist";
 import {useState} from "react";
 import {vpeChecklist_RAAC} from "@/app/checklist/vpeChecklist_RAAC";
 import {vpeChecklist_Piet} from "@/app/checklist/vpeChecklist_Piet";
 
-const checklists = [warChecklist, vpeChecklist_RAAC, vpeChecklist_Piet]
+const checklists = [vpeChecklist_Piet, vpeChecklist_RAAC]
 
 export default function Home() {
     const [checklistIndex, setChecklistIndex] = useState(0);

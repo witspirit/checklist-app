@@ -76,12 +76,12 @@ export const vpeChecklist_RAAC: Checklist = {
                 check('Flight controls', 'free and correct'),
                 check('Trim', 'check travel & set for takeoff'),
                 check('Battery switch', 'on'),
+                check('Navigation light', 'on').nightOnly(),
                 check('CED lights auto test', 'monitor'),
                 check('Alternator CB switch', 'on').markCritical(),
                 check('Alarm panel', 'test, set day/night').markCritical(),
                 check('Circuit breakers', 'on'),
                 check('All electrical switches and avionics', 'off'),
-                check('Navigation light', 'on').nightOnly(),
             ]
         },
         {
@@ -123,6 +123,7 @@ export const vpeChecklist_RAAC: Checklist = {
                 check('COM/NAV, navigation instruments', 'set'),
                 check('Altimeter', 'set'),
                 check('Horizon/Directional gyro', 'set'),
+                // taxi light also? Or is there no separate taxi light?
                 check('Landing light', 'on').nightOnly(),
             ]
         },

@@ -18,6 +18,7 @@ export const vpeChecklist_Piet: Checklist = {
                 check('Flaps', 'check'),
                 check('Starter key', 'available (not in)'),
                 check('Battery switch', 'on'),
+                check('Interior lights', 'check').nightOnly().markCritical(),
                 check('Annunciator panel', 'test'),
                 check('Circuit breakers', 'check'),
                 check('Fuel quantity', 'checked'),
@@ -95,10 +96,10 @@ export const vpeChecklist_Piet: Checklist = {
                 check('Flaps', 'check & set'),
                 check('Battery switch', 'on'),
                 check('CED lights auto test', 'monitor'),
+                check('Navigation light', 'on').nightOnly(),
                 check('Starter switch', 'off & key ready'),
                 check('Fuel level & temperature', 'check'),
                 check('Annunciator panel', 'test, set day/night').markCritical(),
-                check('Navigation light', 'on').nightOnly(),
             ]
         },
         {
@@ -135,6 +136,7 @@ export const vpeChecklist_Piet: Checklist = {
                 check('Attitude indicator', 'align'),
                 check('Directional gyro', 'align'),
                 check('Radios and navaids', 'on & set'),
+                check('Taxi light', 'on').nightOnly(),
                 check('Landing light', 'on').nightOnly(),
             ]
         },
@@ -226,6 +228,7 @@ export const vpeChecklist_Piet: Checklist = {
                 check('Brakes', 'apply'),
                 check('Engine pressures and temperatures', 'in limits'),
                 check('Electrical fuel pump', 'off'),
+                check('Taxi light', 'off').nightOnly(),
                 check('Landing light', 'off'),
                 check('Flaps', 'up')
             ]
@@ -236,6 +239,7 @@ export const vpeChecklist_Piet: Checklist = {
                 check('Directional gyro', 'align'),
                 check('Altimeter', 'set'),
                 check('Landing light', 'on'),
+                check('Taxi light', 'on').nightOnly(),
                 check('Electrical fuel pump', 'on'),
                 check('Engine instruments', 'check'),
                 check('Approach briefing', 'review')
@@ -269,7 +273,7 @@ export const vpeChecklist_Piet: Checklist = {
                 check('Avionics master switch', 'off'),
                 check('Thrust', 'idle'),
                 check('Engine master switch', 'off'),
-                check('Electrical switches', 'all off'),
+                check('Electrical switches', 'all off'), // Includes landing light and taxi light
                 check('Flaps', 'down'),
                 check('Battery switch', 'off'),
                 check('Starter switch', 'off & key removed'),
